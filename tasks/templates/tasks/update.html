@@ -1,0 +1,44 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+<div class="center-column">
+<h3 class="text-center text-warning p-3">Update Task</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="container">
+        {% render_field form.title  class="form-control " %}
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+                {% render_field form.complete  class="form-control btn-sm" %}
+            </div>
+            <div class="col-md-11">
+                <div class="alert alert-secondary" role="alert">
+                    Tick if completed!!
+                </div>
+            </div>
+        </div>
+    <input type="submit" class="btn btn-info" value="Submit">
+    
+</form>
+</div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+

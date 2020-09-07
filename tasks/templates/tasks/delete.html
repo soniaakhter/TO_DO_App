@@ -1,0 +1,16 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="center-column">
+    <h3 class="text-center text-warning p-3">Are you sure <b>"{{item}}" </b>?</h3>
+    <a href="{% url 'list' %}"><input type="submit" class="btn  btn-sm btn-info" value="Cancel"></a>
+    
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+    </form>
+</div>
+
+{% endblock content %}

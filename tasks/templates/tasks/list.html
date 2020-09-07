@@ -1,0 +1,38 @@
+{% extends "tasks/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+{% block content %}
+
+
+
+<div class="center-column">
+    <h3 class="text-center text-warning p-3">To-Do-App</h3>
+    <form action="/" method="POST" >
+        {% csrf_token %}
+        {% render_field form.title  class="form-control mt-3" placeholder="Enter task here..."%}
+        <input type="submit" class="btn btn-info" value="Submit">
+    </form>
+    <div class="todo-list">
+    {% for task in tasks %}
+
+        <div class="item-row">
+            <a class="btn btn-sm btn-info" href="{% url 'update' task.id %}">Update</a>
+            <a class="btn btn-sm btn-danger" href="{% url 'delete' task.id %}">Delete</a>
+            {% if task.complete == True %}
+                <p><s>{{task}}</s></p>
+            {% else %}
+                <span>{{task}}</span>
+            {% endif %}
+                
+
+            </div>
+    {% endfor %}
+    </div>
+</div>
+
+
+{% endblock content %}
+
+
+
+
